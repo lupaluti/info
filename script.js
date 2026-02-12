@@ -1,30 +1,37 @@
 let topZ = 10;
 
+function openWin(id) {
+  const w = document.getElementById(id);
+  w.style.display = "block";
+  w.style.zIndex = ++topZ;
+}
+
 function closeWin(id) {
   document.getElementById(id).style.display = "none";
 }
 
+function toggleStart() {
+  const m = document.getElementById("startMenu");
+  m.style.display = m.style.display === "block" ? "none" : "block";
+}
+
+/* DRAG */
 document.querySelectorAll('.window').forEach(win => {
   const bar = win.querySelector('.title-bar');
 
   bar.addEventListener('mousedown', e => {
     win.style.zIndex = ++topZ;
-
-    let offsetX = e.clientX - win.offsetLeft;
-    let offsetY = e.clientY - win.offsetTop;
+    let ox = e.clientX - win.offsetLeft;
+    let oy = e.clientY - win.offsetTop;
 
     function move(e) {
-      win.style.left = e.clientX - offsetX + "px";
-      win.style.top = e.clientY - offsetY + "px";
+      win.style.left = e.clientX - ox + "px";
+      win.style.top = e.clientY - oy + "px";
     }
 
     document.addEventListener('mousemove', move);
     document.addEventListener('mouseup', () => {
       document.removeEventListener('mousemove', move);
     }, { once: true });
-  });
-
-  win.addEventListener('mousedown', () => {
-    win.style.zIndex = ++topZ;
   });
 });
