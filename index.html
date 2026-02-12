@@ -11,11 +11,9 @@
 <div class="icon" onclick="openWin('byf')" style="top:40px; left:40px;">
   <span>byf.exe</span>
 </div>
-
 <div class="icon" onclick="openWin('likes')" style="top:120px; left:40px;">
   <span>likes.exe</span>
 </div>
-
 <div class="icon" onclick="openWin('dni')" style="top:200px; left:40px;">
   <span>dislikes.exe</span>
 </div>
@@ -26,7 +24,8 @@
     <span>byf.exe</span>
     <button onclick="closeWin('byf')">x</button>
   </div>
-  <div class="content">
+  <div class="content profile">
+    <img src="assets/avatar.png" class="avatar" alt="avatar">
     <ul>
       <li>spoiler atabilirim</li>
       <li>low interaction</li>
@@ -66,9 +65,6 @@
 <!-- TASKBAR -->
 <div class="taskbar">
   <button class="start" onclick="toggleStart()">start</button>
-  <div class="task">byf.exe</div>
-  <div class="task">likes.exe</div>
-  <div class="task">dislikes.exe</div>
 </div>
 
 <!-- START MENU -->
@@ -77,6 +73,8 @@
   <p>log off</p>
   <p>turn off</p>
 </div>
+
+<audio id="clickSound" src="assets/click.mp3"></audio>
 
 <script src="script.js"></script>
 </body>
