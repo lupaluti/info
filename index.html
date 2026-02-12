@@ -1,9 +1,17 @@
-<div class="window">
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>before you follow</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="window" id="byf">
   <div class="title-bar">
     <span>byf.exe</span>
-    <button class="close">x</button>
+    <button class="close" onclick="closeWin('byf')">x</button>
   </div>
-
   <div class="content">
     <ul>
       <li>spoiler atabilirim</li>
@@ -12,3 +20,35 @@
     </ul>
   </div>
 </div>
+
+<div class="window" id="likes" style="top:200px; left:320px;">
+  <div class="title-bar">
+    <span>likes.exe</span>
+    <button class="close" onclick="closeWin('likes')">x</button>
+  </div>
+  <div class="content">
+    <ul>
+      <li>pixel art</li>
+      <li>music</li>
+      <li>night vibes</li>
+    </ul>
+  </div>
+</div>
+
+<div class="window" id="dni" style="top:120px; left:620px;">
+  <div class="title-bar">
+    <span>dni.exe</span>
+    <button class="close" onclick="closeWin('dni')">x</button>
+  </div>
+  <div class="content">
+    <ul>
+      <li>ayrımcı dil</li>
+      <li>troll</li>
+      <li>saygısızlık</li>
+    </ul>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
