@@ -1,0 +1,24 @@
+body {
+  background: #7aa2e3;
+  font-family: monospace;
+}
+
+.window {
+  width: 220px;
+  background: #e0e0e0;
+  border: 2px solid #000;
+  position: absolute;
+}
+
+.title-bar {
+  background: #3b5dc9;
+  color: white;
+  padding: 4px;
+  display: flex;
+  justify-content: space-between;
+  cursor: move;
+}
+
+.content {
+  padding: 8px;
+}
