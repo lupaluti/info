@@ -23,3 +23,30 @@ document.addEventListener("mousemove", e => {
 });
 
 document.addEventListener("mouseup", () => isDrag = false);
+
+let tursuMode = false;
+
+// turşu tabını aç + modu aktif et
+function toggleTursu() {
+  showTab('tursu');
+  tursuMode = true;
+}
+
+// ekrana tıklanınca turşu çıkması
+document.addEventListener("click", e => {
+  if (!tursuMode) return;
+
+  // pencerenin içindeki tıklamaları sayma
+  if (e.target.closest("#window")) return;
+
+  const img = document.createElement("img");
+  img.src = "tursu.png"; // 👈 senin ekleyeceğin dosya
+  img.className = "tursu";
+
+  img.style.left = e.pageX - 32 + "px";
+  img.style.top = e.pageY - 32 + "px";
+
+  document.body.appendChild(img);
+
+  setTimeout(() => img.remove(), 1000);
+});
