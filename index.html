@@ -1,111 +1,20 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>byf.exe</title>
-
-<style>
-:root {
-  --win-bg: #f2f6ff;
-  --bar: linear-gradient(#e9f1ff, #c9dcff);
-  --border: #8aa7e6;
-}
-
-body {
-  margin: 0;
-  background: #9bbcff;
-  font-family: "Tahoma", sans-serif;
-  height: 100vh;
-  overflow: hidden;
-}
-
-/* ====== WINDOW ====== */
-.window {
-  position: absolute;
-  width: 260px;
-  background: var(--win-bg);
-  border: 2px solid var(--border);
-  box-shadow: 4px 4px 0 #6b86c7;
-}
-
-.titlebar {
-  background: var(--bar);
-  padding: 4px;
-  cursor: move;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.titlebar span {
-  font-weight: bold;
-}
-
-.close {
-  background: #fff;
-  border: 1px solid #666;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-}
-
-.content {
-  padding: 10px;
-  font-size: 14px;
-}
-
-/* ====== AVATAR ====== */
-.avatar {
-  width: 64px;
-  height: 64px;
-  image-rendering: pixelated;
-  margin-bottom: 8px;
-}
-
-/* ====== TASKBAR ====== */
-#taskbar {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: var(--bar);
-  display: flex;
-  padding: 4px;
-  gap: 6px;
-}
-
-.task-btn {
-  padding: 4px 8px;
-  border: 1px solid #6b86c7;
-  background: #fff;
-  cursor: pointer;
-}
-
-/* ====== MOBILE ====== */
-@media (max-width: 600px) {
-  body { background:#fff; }
-  .window {
-    position: static;
-    width: 100%;
-    box-shadow: none;
-    margin-bottom: 10px;
-  }
-  #taskbar { display: none; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>byf.exe</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- 🔊 sounds -->
 <audio id="openSound" src="open.mp3"></audio>
 <audio id="clickSound" src="click.mp3"></audio>
 
-<!-- ===== BYF ===== -->
 <div class="window" id="byf" style="top:80px;left:80px;">
   <div class="titlebar">
     <span>byf.exe</span>
-    <button class="close" onclick="this.parentElement.parentElement.style.display='none'">X</button>
+    <button class="close">X</button>
   </div>
   <div class="content">
     <img src="avatar.png" class="avatar">
@@ -117,68 +26,32 @@ body {
   </div>
 </div>
 
-<!-- ===== LIKES ===== -->
 <div class="window" id="likes" style="top:120px;left:380px;">
   <div class="titlebar">
     <span>likes.exe</span>
-    <button class="close" onclick="this.parentElement.parentElement.style.display='none'">X</button>
+    <button class="close">X</button>
   </div>
   <div class="content">
-    music, pixel art, old web, late replies
+    music, pixel art, old web
   </div>
 </div>
 
-<!-- ===== DISLIKES ===== -->
 <div class="window" id="dislikes" style="top:320px;left:200px;">
   <div class="titlebar">
     <span>dislikes.exe</span>
-    <button class="close" onclick="this.parentElement.parentElement.style.display='none'">X</button>
+    <button class="close">X</button>
   </div>
   <div class="content">
     gore, pressure, drama
   </div>
 </div>
 
-<!-- ===== TASKBAR ===== -->
 <div id="taskbar">
-  <button class="task-btn" onclick="openWin('byf')">byf</button>
-  <button class="task-btn" onclick="openWin('likes')">likes</button>
-  <button class="task-btn" onclick="openWin('dislikes')">dislikes</button>
+  <button onclick="openWin('byf')">byf</button>
+  <button onclick="openWin('likes')">likes</button>
+  <button onclick="openWin('dislikes')">dislikes</button>
 </div>
 
-<script>
-/* ===== OPEN SOUND ===== */
-window.onload = () => {
-  document.getElementById("openSound").play();
-};
-
-/* ===== OPEN WINDOW ===== */
-function openWin(id){
-  const win = document.getElementById(id);
-  win.style.display = "block";
-  document.getElementById("clickSound").play();
-}
-
-/* ===== DRAG ===== */
-document.querySelectorAll(".window").forEach(win => {
-  const bar = win.querySelector(".titlebar");
-  let offsetX, offsetY, drag=false;
-
-  bar.onmousedown = e => {
-    drag = true;
-    offsetX = e.clientX - win.offsetLeft;
-    offsetY = e.clientY - win.offsetTop;
-  };
-
-  document.onmousemove = e => {
-    if(!drag) return;
-    win.style.left = e.clientX - offsetX + "px";
-    win.style.top  = e.clientY - offsetY + "px";
-  };
-
-  document.onmouseup = () => drag = false;
-});
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
