@@ -7,27 +7,13 @@ body {
 }
 * { image-rendering: pixelated; }
 
-/* ICONS */
-.icon {
-  position: absolute;
-  width: 90px;
-  text-align: center;
-  cursor: pointer;
-}
-.icon span {
-  background: #e4e4e4;
-  padding: 2px 4px;
-  border: 1px solid #000;
-  display: inline-block;
-}
-
 /* WINDOWS */
 .window {
   width: 260px;
   background: #e4e4e4;
   border: 2px solid #000;
   position: absolute;
-  display: none;
+  display: block;
 }
 .title-bar {
   background: #3b5dc9;
@@ -88,16 +74,14 @@ li { margin: 4px 0; }
 .start-menu p {
   margin: 0;
   padding: 6px;
-  border-bottom: 1px solid #000;
 }
 
 /* MOBILE MODE */
 @media (max-width: 768px) {
   body { background: #111; color: #eee; }
-  .icon, .taskbar, .start-menu { display: none; }
+  .taskbar, .start-menu { display: none; }
   .window {
     position: static;
-    display: block;
     width: 90%;
     margin: 12px auto;
   }
