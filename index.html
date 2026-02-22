@@ -1,20 +1,114 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>info.exe</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>byf.exe</title>
+
+<style>
+:root {
+  --win-bg: #f2f6ff;
+  --bar: linear-gradient(#e9f1ff, #c9dcff);
+  --border: #8aa7e6;
+}
+
+body {
+  margin: 0;
+  background: #9bbcff;
+  font-family: "Tahoma", sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ====== WINDOW ====== */
+.window {
+  position: absolute;
+  width: 260px;
+  background: var(--win-bg);
+  border: 2px solid var(--border);
+  box-shadow: 4px 4px 0 #6b86c7;
+}
+
+.titlebar {
+  background: var(--bar);
+  padding: 4px;
+  cursor: move;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titlebar span {
+  font-weight: bold;
+}
+
+.close {
+  background: #fff;
+  border: 1px solid #666;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.content {
+  padding: 10px;
+  font-size: 14px;
+}
+
+/* ====== AVATAR ====== */
+.avatar {
+  width: 64px;
+  height: 64px;
+  image-rendering: pixelated;
+  margin-bottom: 8px;
+}
+
+/* ====== TASKBAR ====== */
+#taskbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: var(--bar);
+  display: flex;
+  padding: 4px;
+  gap: 6px;
+}
+
+.task-btn {
+  padding: 4px 8px;
+  border: 1px solid #6b86c7;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* ====== MOBILE ====== */
+@media (max-width: 600px) {
+  body { background:#fff; }
+  .window {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    margin-bottom: 10px;
+  }
+  #taskbar { display: none; }
+}
+</style>
 </head>
+
 <body>
 
-<!-- WINDOWS -->
-<div class="window" id="byf" data-x="180" data-y="80">
-  <div class="title-bar">
+<!-- 🔊 sounds -->
+<audio id="openSound" src="open.mp3"></audio>
+<audio id="clickSound" src="click.mp3"></audio>
+
+<!-- ===== BYF ===== -->
+<div class="window" id="byf" style="top:80px;left:80px;">
+  <div class="titlebar">
     <span>byf.exe</span>
-    <button onclick="closeWin('byf')">x</button>
+    <button class="close" onclick="this.parentElement.parentElement.style.display='none'">X</button>
   </div>
-  <div class="content profile">
-    <img src="assets/avatar.png" class="avatar" alt="">
+  <div class="content">
+    <img src="avatar.png" class="avatar">
     <ul>
       <li>spoiler atabilirim</li>
       <li>low interaction</li>
@@ -23,51 +117,68 @@
   </div>
 </div>
 
-<div class="window" id="likes" data-x="480" data-y="140">
-  <div class="title-bar">
+<!-- ===== LIKES ===== -->
+<div class="window" id="likes" style="top:120px;left:380px;">
+  <div class="titlebar">
     <span>likes.exe</span>
-    <button onclick="closeWin('likes')">x</button>
+    <button class="close" onclick="this.parentElement.parentElement.style.display='none'">X</button>
   </div>
   <div class="content">
-    <ul>
-      <li>pixel art</li>
-      <li>music</li>
-      <li>night vibes</li>
-    </ul>
+    music, pixel art, old web, late replies
   </div>
 </div>
 
-<div class="window" id="dislikes" data-x="760" data-y="200">
-  <div class="title-bar">
+<!-- ===== DISLIKES ===== -->
+<div class="window" id="dislikes" style="top:320px;left:200px;">
+  <div class="titlebar">
     <span>dislikes.exe</span>
-    <button onclick="closeWin('dislikes')">x</button>
+    <button class="close" onclick="this.parentElement.parentElement.style.display='none'">X</button>
   </div>
   <div class="content">
-    <ul>
-      <li>ayrımcı dil</li>
-      <li>troll</li>
-      <li>saygısızlık</li>
-    </ul>
+    gore, pressure, drama
   </div>
 </div>
 
-<!-- TASKBAR -->
-<div class="taskbar">
-  <button class="start" onclick="toggleStart()">start</button>
-  <div class="task" onclick="openWin('byf')">byf.exe</div>
-  <div class="task" onclick="openWin('likes')">likes.exe</div>
-  <div class="task" onclick="openWin('dislikes')">dislikes.exe</div>
+<!-- ===== TASKBAR ===== -->
+<div id="taskbar">
+  <button class="task-btn" onclick="openWin('byf')">byf</button>
+  <button class="task-btn" onclick="openWin('likes')">likes</button>
+  <button class="task-btn" onclick="openWin('dislikes')">dislikes</button>
 </div>
 
-<!-- START MENU -->
-<div class="start-menu" id="startMenu">
-  <p>info.exe</p>
-  <p>log off</p>
-  <p>turn off</p>
-</div>
+<script>
+/* ===== OPEN SOUND ===== */
+window.onload = () => {
+  document.getElementById("openSound").play();
+};
 
-<audio id="clickSound" src="assets/click.mp3"></audio>
+/* ===== OPEN WINDOW ===== */
+function openWin(id){
+  const win = document.getElementById(id);
+  win.style.display = "block";
+  document.getElementById("clickSound").play();
+}
 
-<script src="script.js"></script>
+/* ===== DRAG ===== */
+document.querySelectorAll(".window").forEach(win => {
+  const bar = win.querySelector(".titlebar");
+  let offsetX, offsetY, drag=false;
+
+  bar.onmousedown = e => {
+    drag = true;
+    offsetX = e.clientX - win.offsetLeft;
+    offsetY = e.clientY - win.offsetTop;
+  };
+
+  document.onmousemove = e => {
+    if(!drag) return;
+    win.style.left = e.clientX - offsetX + "px";
+    win.style.top  = e.clientY - offsetY + "px";
+  };
+
+  document.onmouseup = () => drag = false;
+});
+</script>
+
 </body>
 </html>
