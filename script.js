@@ -33,7 +33,7 @@ document.addEventListener("click", e=>{
   if(e.target.closest("#window")) return;
 
   const img=document.createElement("img");
-  img.src="tursu.png";
+  img.src="assets/img/tursu.png";
   img.className="tursu";
   img.style.left=e.pageX-32+"px";
   img.style.top=e.pageY-32+"px";
