@@ -7,8 +7,8 @@
 </head>
 <body>
 
-<!-- WINDOWS (SABİT BAŞLANGIÇ KONUMU) -->
-<div class="window" id="byf" data-x="200" data-y="80">
+<!-- WINDOWS -->
+<div class="window" id="byf" data-x="180" data-y="80">
   <div class="title-bar">
     <span>byf.exe</span>
     <button onclick="closeWin('byf')">x</button>
@@ -23,7 +23,7 @@
   </div>
 </div>
 
-<div class="window" id="likes" data-x="500" data-y="140">
+<div class="window" id="likes" data-x="480" data-y="140">
   <div class="title-bar">
     <span>likes.exe</span>
     <button onclick="closeWin('likes')">x</button>
@@ -37,10 +37,10 @@
   </div>
 </div>
 
-<div class="window" id="dni" data-x="780" data-y="200">
+<div class="window" id="dislikes" data-x="760" data-y="200">
   <div class="title-bar">
     <span>dislikes.exe</span>
-    <button onclick="closeWin('dni')">x</button>
+    <button onclick="closeWin('dislikes')">x</button>
   </div>
   <div class="content">
     <ul>
@@ -54,10 +54,16 @@
 <!-- TASKBAR -->
 <div class="taskbar">
   <button class="start" onclick="toggleStart()">start</button>
+  <div class="task" onclick="openWin('byf')">byf.exe</div>
+  <div class="task" onclick="openWin('likes')">likes.exe</div>
+  <div class="task" onclick="openWin('dislikes')">dislikes.exe</div>
 </div>
 
+<!-- START MENU -->
 <div class="start-menu" id="startMenu">
   <p>info.exe</p>
+  <p>log off</p>
+  <p>turn off</p>
 </div>
 
 <audio id="clickSound" src="assets/click.mp3"></audio>
