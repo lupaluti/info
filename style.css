@@ -61,7 +61,7 @@ body{
 /* TURŞU BUTONU */
 #tursuBtn{
   position:absolute;
-  top:50%;
+  top:30%;
   left:50%;
   transform:translate(-50%, -50%);
   background:transparent;
@@ -71,7 +71,7 @@ body{
 }
 
 #tursuBtn img{
-  width:48px;   /* buradan boyutla oyna */
+  width:50px;   /* buradan boyutla oyna */
   height:auto;
   display:block;
 }
