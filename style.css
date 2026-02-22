@@ -43,12 +43,14 @@ body{
   padding:16px;
 }
 
+/* PROFILE */
 #profile{
   width:200px;
   background:#eef5ff;
   border-radius:10px;
   padding:12px;
   text-align:center;
+  position:relative; /* turşu referansı */
 }
 
 #profile img{
@@ -56,14 +58,25 @@ body{
   border-radius:10px;
 }
 
-#profile button{
-  margin-top:8px;
-  width:100%;
-  background:#fff;
-  border:1px solid #9db8e0;
+/* TURŞU BUTONU */
+#tursuBtn{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  background:transparent;
+  border:none;
+  padding:0;
   cursor:pointer;
 }
 
+#tursuBtn img{
+  width:48px;   /* buradan boyutla oyna */
+  height:auto;
+  display:block;
+}
+
+/* CONTENT */
 #content{
   flex:1;
   display:flex;
@@ -88,7 +101,7 @@ body{
   gap:10px;
 }
 
-/* turşu efekti */
+/* TURŞU EFEKTİ */
 .tursu{
   position:absolute;
   width:64px;
@@ -99,23 +112,4 @@ body{
 @keyframes fade{
   from{opacity:1;transform:scale(1)}
   to{opacity:0;transform:scale(1.4)}
-}
-
-#tursuBtn {
-  background: transparent !important;
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-  padding: 0;
-  cursor: pointer;
-}
-
-#tursuBtn:focus,
-#tursuBtn:active {
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-#tursuBtn img {
-  display: block;   /* img etrafındaki garip boşlukları da keser */
 }
