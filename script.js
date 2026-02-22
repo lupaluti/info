@@ -8,6 +8,13 @@ function playClick() {
   }
 }
 
+function openWin(id) {
+  playClick();
+  const w = document.getElementById(id);
+  w.style.display = "block";
+  w.style.zIndex = ++topZ;
+}
+
 function closeWin(id) {
   playClick();
   document.getElementById(id).style.display = "none";
@@ -19,15 +26,13 @@ function toggleStart() {
   m.style.display = m.style.display === "block" ? "none" : "block";
 }
 
-/* DEFAULT POZİSYONLARI UYGULA */
+/* DEFAULT POZİSYONLAR */
 document.querySelectorAll('.window').forEach(win => {
-  const x = win.dataset.x;
-  const y = win.dataset.y;
-  win.style.left = x + "px";
-  win.style.top = y + "px";
+  win.style.left = win.dataset.x + "px";
+  win.style.top = win.dataset.y + "px";
 });
 
-/* DRAG (AMA KAYDETME YOK) */
+/* DRAG */
 document.querySelectorAll('.window').forEach(win => {
   const bar = win.querySelector('.title-bar');
 
@@ -50,7 +55,7 @@ document.querySelectorAll('.window').forEach(win => {
   });
 });
 
-/* AUTO POPUP */
+/* AUTO FOCUS */
 window.onload = () => {
-  document.getElementById("byf").style.zIndex = ++topZ;
+  openWin('byf');
 };
