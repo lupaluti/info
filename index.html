@@ -7,25 +7,14 @@
 </head>
 <body>
 
-<!-- DESKTOP ICONS -->
-<div class="icon" onclick="openWin('byf')" style="top:40px; left:40px;">
-  <span>byf.exe</span>
-</div>
-<div class="icon" onclick="openWin('likes')" style="top:120px; left:40px;">
-  <span>likes.exe</span>
-</div>
-<div class="icon" onclick="openWin('dni')" style="top:200px; left:40px;">
-  <span>dislikes.exe</span>
-</div>
-
-<!-- WINDOWS -->
-<div class="window" id="byf" style="top:80px; left:200px;">
+<!-- WINDOWS (SABİT BAŞLANGIÇ KONUMU) -->
+<div class="window" id="byf" data-x="200" data-y="80">
   <div class="title-bar">
     <span>byf.exe</span>
     <button onclick="closeWin('byf')">x</button>
   </div>
   <div class="content profile">
-    <img src="assets/avatar.png" class="avatar" alt="avatar">
+    <img src="assets/avatar.png" class="avatar" alt="">
     <ul>
       <li>spoiler atabilirim</li>
       <li>low interaction</li>
@@ -34,7 +23,7 @@
   </div>
 </div>
 
-<div class="window" id="likes" style="top:120px; left:480px;">
+<div class="window" id="likes" data-x="500" data-y="140">
   <div class="title-bar">
     <span>likes.exe</span>
     <button onclick="closeWin('likes')">x</button>
@@ -48,7 +37,7 @@
   </div>
 </div>
 
-<div class="window" id="dni" style="top:160px; left:760px;">
+<div class="window" id="dni" data-x="780" data-y="200">
   <div class="title-bar">
     <span>dislikes.exe</span>
     <button onclick="closeWin('dni')">x</button>
@@ -67,11 +56,8 @@
   <button class="start" onclick="toggleStart()">start</button>
 </div>
 
-<!-- START MENU -->
 <div class="start-menu" id="startMenu">
   <p>info.exe</p>
-  <p>log off</p>
-  <p>turn off</p>
 </div>
 
 <audio id="clickSound" src="assets/click.mp3"></audio>
