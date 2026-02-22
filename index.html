@@ -17,57 +17,55 @@
     </div>
   </div>
 
-  <div id="toolbar">
-    <button onclick="showTab('home')">home</button>
-    <button onclick="showTab('byf')">byf</button>
-    <button onclick="showTab('likes')">likes</button>
-    <button onclick="showTab('dislikes')">dislikes</button>
-    <button onclick="toggleTursu()">turşu.exe</button>
+  <div id="banner">
+    <img src="banner.png">
   </div>
 
-  <div id="content">
-    <div class="tab active" id="home">
-      <div class="left">
-        <img src="https://i.imgur.com/6XKQZQx.png" class="avatar">
-        <p><b>Untitled</b></p>
-        <p>info / info / info</p>
-      </div>
-      <div class="right">
-        <h2>Title Here</h2>
+  <div id="main">
+    <div id="profile">
+      <img src="avatar.png">
+      <h3>Untitled</h3>
+      <p>info / info / info</p>
+      <button id="tursuBtn">turşu.exe</button>
+    </div>
+
+    <div id="content">
+      <div class="section">
+        <h4>Title Here</h4>
         <p>kişisel info page</p>
-        <p>old web + sade</p>
+      </div>
+
+      <div class="section">
+        <h4>before you follow</h4>
+        <ul>
+          <li>spoiler atabilirim</li>
+          <li>low interaction</li>
+          <li>random</li>
+        </ul>
+      </div>
+
+      <div class="section split">
+        <div>
+          <h4>likes</h4>
+          <ul>
+            <li>pixel art</li>
+            <li>music</li>
+          </ul>
+        </div>
+        <div>
+          <h4>dislikes</h4>
+          <ul>
+            <li>drama</li>
+            <li>pressure</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section" id="tursuWin" style="display:none">
+        <h4>turşu.exe</h4>
+        <p>ekrana tıkla 🥒</p>
       </div>
     </div>
-
-    <div class="tab" id="byf">
-      <h3>before you follow</h3>
-      <ul>
-        <li>spoiler atabilirim</li>
-        <li>low interaction</li>
-        <li>random</li>
-      </ul>
-    </div>
-
-    <div class="tab" id="likes">
-      <ul>
-        <li>pixel art</li>
-        <li>music</li>
-        <li>old web</li>
-      </ul>
-    </div>
-
-    <div class="tab" id="dislikes">
-      <ul>
-        <li>drama</li>
-        <li>pressure</li>
-        <li>hot weather</li>
-      </ul>
-    </div>
-
-    <div class="tab" id="tursu">
-     <h3>turşu.exe</h3>
-     <p>ekrana tıkla 🍀</p>
-   </div>
   </div>
 </div>
 
