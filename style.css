@@ -102,19 +102,20 @@ body{
 }
 
 #tursuBtn {
-  background: none;
-  border: none;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
   padding: 0;
   cursor: pointer;
 }
 
-#tursuBtn img {
-  width: 48px;        /* BURADAN boyut */
-  height: auto;
-  image-rendering: pixelated; /* pixel vibe varsa */
-  transition: transform .2s ease;
+#tursuBtn:focus,
+#tursuBtn:active {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
-#tursuBtn:hover img {
-  transform: scale(1.15);
+#tursuBtn img {
+  display: block;   /* img etrafındaki garip boşlukları da keser */
 }
