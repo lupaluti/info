@@ -1,72 +1,74 @@
-:root {
-  --win-bg: #f2f6ff;
-  --bar: linear-gradient(#e9f1ff, #c9dcff);
-  --border: #8aa7e6;
-}
-
 body {
   margin: 0;
-  background: #9bbcff;
-  font-family: Tahoma, sans-serif;
   height: 100vh;
-  overflow: hidden;
+  background: linear-gradient(#9cc6ff, #e8f3ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Tahoma, sans-serif;
 }
 
-.window {
+#window {
+  width: 760px;
+  background: #f4f9ff;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.3);
+  border: 1px solid #aac5e6;
   position: absolute;
-  width: 260px;
-  background: var(--win-bg);
-  border: 2px solid var(--border);
-  box-shadow: 4px 4px 0 #6b86c7;
 }
 
-.titlebar {
-  background: var(--bar);
-  padding: 4px;
-  cursor: move;
+#titlebar {
+  background: linear-gradient(#eaf4ff, #c9defa);
+  padding: 6px 10px;
   display: flex;
   justify-content: space-between;
+  cursor: move;
+  border-radius: 10px 10px 0 0;
 }
 
-.close {
-  width: 20px;
-  height: 20px;
+.controls button {
+  border: none;
+  background: #fff;
+  margin-left: 4px;
   cursor: pointer;
 }
 
-.content {
-  padding: 10px;
-  font-size: 14px;
-}
-
-.avatar {
-  width: 64px;
-  height: 64px;
-  image-rendering: pixelated;
-}
-
-#taskbar {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: var(--bar);
-  padding: 4px;
+#toolbar {
+  padding: 6px;
+  background: #e6f0ff;
   display: flex;
   gap: 6px;
 }
 
-#taskbar button {
+#toolbar button {
   background: #fff;
-  border: 1px solid #6b86c7;
+  border: 1px solid #aac5e6;
   cursor: pointer;
 }
 
-/* mobil sade mod */
-@media (max-width: 600px) {
-  .window {
-    position: static;
-    width: 100%;
-    box-shadow: none;
-  }
-  #taskbar { display: none; }
+#content {
+  padding: 14px;
+}
+
+.tab {
+  display: none;
+}
+
+.tab.active {
+  display: flex;
+  gap: 20px;
+}
+
+.left {
+  width: 200px;
+  text-align: center;
+}
+
+.avatar {
+  width: 120px;
+  border-radius: 10px;
+}
+
+.right {
+  flex: 1;
 }
