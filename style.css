@@ -102,15 +102,19 @@ body{
 }
 
 #tursuBtn {
-  background: transparent;   /* arka plan yok */
-  border: none;              /* çerçeve yok */
-  font-size: 36px;           /* büyüklük */
-  cursor: pointer;
+  background: none;
+  border: none;
   padding: 0;
-  line-height: 1;
+  cursor: pointer;
 }
 
-/* isteğe bağlı hover efekti */
-#tursuBtn:hover {
-  transform: scale(1.2);
+#tursuBtn img {
+  width: 48px;        /* BURADAN boyut */
+  height: auto;
+  image-rendering: pixelated; /* pixel vibe varsa */
+  transition: transform .2s ease;
+}
+
+#tursuBtn:hover img {
+  transform: scale(1.15);
 }
