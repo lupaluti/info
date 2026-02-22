@@ -40,7 +40,7 @@ document.addEventListener("click", e => {
   if (e.target.closest("#window")) return;
 
   const img = document.createElement("img");
-  img.src = "tursu.png"; // 👈 senin ekleyeceğin dosya
+  img.src = "assets/img/tursu.png"; // 👈 senin ekleyeceğin dosya
   img.className = "tursu";
 
   img.style.left = e.pageX - 32 + "px";
