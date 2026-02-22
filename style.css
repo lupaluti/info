@@ -100,3 +100,17 @@ body{
   from{opacity:1;transform:scale(1)}
   to{opacity:0;transform:scale(1.4)}
 }
+
+#tursuBtn {
+  background: transparent;   /* arka plan yok */
+  border: none;              /* çerçeve yok */
+  font-size: 36px;           /* büyüklük */
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+/* isteğe bağlı hover efekti */
+#tursuBtn:hover {
+  transform: scale(1.2);
+}
